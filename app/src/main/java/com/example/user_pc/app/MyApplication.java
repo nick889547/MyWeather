@@ -20,6 +20,20 @@ public class MyApplication extends Application{
     private CityDB mCityDB;
     private List<City> mCityList;
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG, "MyApplicaiton->Oncreate");
+
+        mApplication = this;
+        mCityDB = openCityDB();
+        initCityList();
+    }
+
+    public static MyApplication getInstance() {
+        return mApplication;
+    }
+
     private void initCityList(){
         mCityList = new ArrayList<City>();
         new Thread(new Runnable() {
@@ -45,19 +59,6 @@ public class MyApplication extends Application{
     }
     public List<City> getCityList() {
         return mCityList;
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.d(TAG, "MyApplicaiton->Oncreate");
-
-        mApplication = this;
-        mCityDB = openCityDB();
-    }
-
-    public static MyApplication getInstance() {
-        return mApplication;
     }
 
     private CityDB openCityDB() {

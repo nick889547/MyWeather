@@ -2,7 +2,6 @@ package com.example.user_pc.myweather;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
